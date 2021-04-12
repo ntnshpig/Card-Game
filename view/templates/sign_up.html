@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="view/templates/styles/form_style.css">
+    <script src="view/templates/js/script.js"></script>
+</head>
+<body>
+    <main>
+        <form action="" method="post" class="sign_up_form">
+            <input type="text" name="login" placeholder="Login" class="input_login" required pattern="^[\w\d]+$"></input>
+            <input type="password" name="password" placeholder="Password" id="input_password" required pattern="^[\w\d]+$"></input>
+            <input type="password" name="repeat" placeholder="Repeat Password" id="input_repeat" required onchange="check_pass()" pattern="^[\w\d]+$"></input>
+            <input type="text" name="real_name" placeholder="Full Name" class="input_real_name" required pattern="^[\w\d]+$"></input>
+            <input type="email" name="email" placeholder="E-mail" class="input_email" required></input>
+            <input type="text" name="avatar_url" placeholder="Avatar URL" class="avatar_url" required></input>
+            <input type="submit" value="Sign Up" name="action">
+            <span class="msg"></span>
+            <a href="?moveto=sign_in" style="color: white;">Already has account ?</a>
+        </form>
+    </main>
+</body>
+</html>

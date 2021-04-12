@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="view/templates/styles/form_style.css">
+</head>
+<body>
+    <main>
+        <form action="" method="post" class="sign_in_form">
+            <input type="text" name="login" placeholder="Login" class="input_login" required pattern="^[\w\d]+$"></input>
+            <input type="password" name="password" placeholder="Password" id="input_password" required pattern="^[\w\d]+$"></input>
+            <input type="submit" value="Sign In" name="action">
+            <span class="msg"></span>
+            <a href="?moveto=sign_up" style="color: white;">Don't have an account ?</a>
+            <a href="?moveto=reminder" style="color: white;">Forgot password ?</a>
+        </form>
+    </main>
+</body>
+</html>

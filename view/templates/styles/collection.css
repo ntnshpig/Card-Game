@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,500);
+*:focus {
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+}
+html {
+  background: url(https://wallpaperaccess.com/full/2454608.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+main {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.card_table {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+}
+.card_table img{
+    height: 360px;
+    width: 240px;
+}
+.card {
+    margin: 15px 20px;
+    width: 330px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 10px;
+    background: rgba( 255, 255, 255, 0.40 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    font-family: 'Oswald';
+}
+.between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.between div{
+    margin: 0px 20px;
+    display: flex;
+    flex-flow: column;
+}
+.name {
+    margin: 10px;
+    font-size: 28px;
+}
+.stats {
+    font-size: 20px;
+}
+.damage {
+    font-size: 20px;
+    color:rgb(179, 44, 44);
+    font-weight: bold;
+}
+.health {
+    font-size: 20px;
+    color:rgb(87, 179, 44);
+    font-weight: bold;
+}
+.cost {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    margin-top: 18px;
+    width: 250px;
+    height: 32px;
+    background: #16a085;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover, input[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
+  
+  input[type="submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
