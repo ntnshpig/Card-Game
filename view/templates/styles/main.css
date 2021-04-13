@@ -1,0 +1,126 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,500);
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+html {
+    font-family: 'Roboto', sans-serif;
+  background: url(https://wallpaperaccess.com/full/2454608.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+img {
+  height: 240px;
+  width: 240px;
+  border-radius: 50%;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background: rgba( 255, 255, 255, 0.40 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6.5px );
+  -webkit-backdrop-filter: blur( 6.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+form, .profile {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.searching {
+  display: none;
+  flex-flow: column;
+  align-items: center;
+}
+
+input[type="submit"] {
+  width: 200px;
+  padding: 10px;
+  margin: 10px 0px;
+  height: 32px;
+  background: #a0162d;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+  
+input[type="submit"]:hover, input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+.dots{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+.stop {
+  width: 200px;
+}
+.user {
+  margin-top: 10px;
+  font-size: larger;
+}
+.circle{
+  width: 20px;
+  height: 20px;
+  background-color: #fcdc29;
+  border-radius: 50%;
+  animation: loading 1.5s cubic-bezier(.8, .5, .2, 1.4) infinite;
+  transform-origin: bottom center;
+  position: relative;
+}
+@keyframes loading{
+  0%{
+    transform: translateY(0px);
+    background-color: #fcdc29;
+  }
+  50%{
+    transform: translateY(50px);
+    background-color: #ef584a;
+  }
+  100%{
+    transform: translateY(0px);
+    background-color: #fcdc29;
+  }
+}
+.circle-1{
+  animation-delay: 0.1s;
+}
+.circle-2{
+  animation-delay: 0.2s;
+}
+.circle-3{
+  animation-delay: 0.3s;
+}
+.circle-4{
+  animation-delay: 0.4s;
+}
+.circle-5{
+  animation-delay: 0.5s;
+}
