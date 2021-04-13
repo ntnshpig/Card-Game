@@ -13,12 +13,14 @@
             <span class="user"></span>
         </div>
         <div class="profile">
-            <input type="submit" value="Start battle" name="action" class="start" onclick="search(1)"></input>
+            <input type="submit" value="Start battle" name="action" class="start" id="start_search"></input>
             <form action="index.php" method="post" class="logout_form">
                 <input type="submit" value="Card collection" name="moveto"></input>
                 <input type="submit" value="Logout" name="logout"></input>
             </form>
             <span class="msg_in"></span>
+            <span>Информация</span>
+            <div id="socket-info"></div>
         </div>
         <div class="searching">
             <div class="dots">
@@ -28,7 +30,7 @@
                 <span class="circle circle-4"></span>
                 <span class="circle circle-5"></span>
             </div>  
-            <input type="submit" value="Stop searching" name="action" class="stop" onclick="search(0)"></input>
+            <input type="submit" value="Stop searching" name="action" class="stop" id="stop_search"></input>
         </div>
     </main>
 </body>

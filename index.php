@@ -7,11 +7,15 @@
     require_once __DIR__.'/model/connection/DatabaseConnection.php';
     require_once __DIR__.'/model/Model.php';
     require_once __DIR__.'/model/Users.php';
-
+ 
     if(!$_SESSION['page']) {
-        $show = New View('view/templates/sign_in.html');
-        $show->render();
+        $_SESSION['page'] = "sign_in";
+        // $show = New View('view/templates/sign_in.html');
+        // $show->render();
     }
+
+    $show = New View('view/templates/sign_in.html');
+    $show->render();
 
     /*if(!isset($_GET['moveto']) && !isset($_POST['moveto'])) {
         $show = New View('view/templates/' . $_SESSION['page'] . ".html");
@@ -36,6 +40,8 @@
         unset($_SESSION['name']);
         unset($_SESSION['page']);
         unset($_SESSION['url']);
+        $show = New View('view/templates/sign_in.html');
+        $show->render();
         session_destroy();
     }
 ?>

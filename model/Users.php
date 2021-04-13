@@ -9,11 +9,12 @@
 
         public function sign_in($login, $password) {
             if ($this->db_new->get_connection() == true) {
-                $new_table = $this->db_new->db_connection->query("SELECT password, full_name, avatar_url FROM " . $this->table . " WHERE login = '" . $login . "';");
+                $new_table = $this->db_new->db_connection->query("SELECT id, password, full_name, avatar_url FROM " . $this->table . " WHERE login = '" . $login . "';");
                 $arr = $new_table->fetch(PDO::FETCH_ASSOC);
                 if(password_verify($password, $arr["password"])) {
                     $_SESSION['name'] = $arr["full_name"];
                     $_SESSION['url'] = $arr["avatar_url"];
+                    $_SESSION['id'] = $arr["id"];
                     return true;
                 } else {
                     return false;
@@ -37,6 +38,9 @@
                                         ":avatar_url" => $url));
                     $_SESSION['name'] = $name;
                     $_SESSION['url'] = $url;
+                    $tmp_sql = "SELECT id FROM users WHERE login=" . $login . ";";
+                    $arr = $new_table->fetch(PDO::FETCH_ASSOC);
+                    $_SESSION['id'] = $arr['id'];
                     return true;
                 }
             }

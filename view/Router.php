@@ -64,11 +64,12 @@
                 $user = new Users();
                 if($user->sign_up($_POST['login'], $_POST['email'], $_POST['password'], $_POST['repeat'], $_POST['real_name'], $_POST['avatar_url'])){
                     ob_clean();
-                    $show = New View("view/templates/user.html");
+                    $show = New View("view/templates/main.html");
                     $show->render();
                     echo '<script>
                             let status = document.querySelector(".user");
                             status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
+                            document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
                             let msg = document.querySelector(".msg_in");
                             msg.innerHTML = "Registration succeed";
                             msg.style.color = "green";
@@ -101,13 +102,13 @@
                             document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
                         </script>';  
             } else if ($page == "Start battle"){
-                echo '<script>
-                            let status = document.querySelector(".user");
-                            status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
-                            document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
-                        </script>';
-                $show = New View("view/templates/main.html");
-                $show->render();
+                // echo '<script>
+                //             let status = document.querySelector(".user");
+                //             status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
+                //             document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
+                //         </script>';
+                // $show = New View("view/templates/main.html");
+                // $show->render();
             } else {
                 ob_end_clean();
                 $show = New View("view/templates/".$page.".html");
