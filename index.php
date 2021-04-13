@@ -9,13 +9,14 @@
     require_once __DIR__.'/model/Users.php';
 
     if(!$_SESSION['page']) {
-        $_SESSION['page'] = 'sign_in';
-    }
-
-    if(!isset($_GET['moveto']) && !isset($_POST['moveto'])) {
-        $show = New View('view/templates/' . $_SESSION['page'] . ".html");
+        $show = New View('view/templates/sign_in.html');
         $show->render();
     }
+
+    /*if(!isset($_GET['moveto']) && !isset($_POST['moveto'])) {
+        $show = New View('view/templates/' . $_SESSION['page'] . ".html");
+        $show->render();
+    }*/
     
     if(isset($_POST['moveto'])) {
         $router = new Router();
@@ -34,6 +35,7 @@
     if(isset($_POST['logout'])) {
         unset($_SESSION['name']);
         unset($_SESSION['page']);
+        unset($_SESSION['url']);
         session_destroy();
     }
 ?>

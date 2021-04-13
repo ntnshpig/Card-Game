@@ -86,6 +86,13 @@ input[type="submit"]:active {
   margin-top: 10px;
   font-size: larger;
 }
+.upper  {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+
 .circle{
   width: 20px;
   height: 20px;

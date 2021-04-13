@@ -26,11 +26,12 @@
                     $show = New View("view/templates/main.html");
                     $show->render();
                     echo '<script>
-                            let status = document.querySelector(".status");
+                            let status = document.querySelector(".user");
                             status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
                             let msg = document.querySelector(".msg_in");
                             msg.innerHTML = "Enter succeed";
                             msg.style.color = "green";
+                            document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
                         </script>';
                 } else {
                     ob_clean();
@@ -63,10 +64,10 @@
                 $user = new Users();
                 if($user->sign_up($_POST['login'], $_POST['email'], $_POST['password'], $_POST['repeat'], $_POST['real_name'], $_POST['avatar_url'])){
                     ob_clean();
-                    $show = New View("view/templates/main.html");
+                    $show = New View("view/templates/user.html");
                     $show->render();
                     echo '<script>
-                            let status = document.querySelector(".status");
+                            let status = document.querySelector(".user");
                             status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
                             let msg = document.querySelector(".msg_in");
                             msg.innerHTML = "Registration succeed";
@@ -87,16 +88,28 @@
 
         public function call_router($page) {
             if($page == "Card collection"){
+                ob_end_clean();
                 $show = New View("view/templates/collection.html");
                 $show->render();    
             } else if($page == "Back") {
+                ob_end_clean();
                 $show = New View("view/templates/main.html");
                 $show->render();
                 echo '<script>
-                            let status = document.querySelector(".status");
+                            let status = document.querySelector(".user");
                             status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
+                            document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
                         </script>';  
+            } else if ($page == "Start battle"){
+                echo '<script>
+                            let status = document.querySelector(".user");
+                            status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
+                            document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
+                        </script>';
+                $show = New View("view/templates/main.html");
+                $show->render();
             } else {
+                ob_end_clean();
                 $show = New View("view/templates/".$page.".html");
                 $show->render();
             }

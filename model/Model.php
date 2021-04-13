@@ -15,5 +15,6 @@
             //first param is IP of Mac with database
             $this->db_new = new DatabaseConnection('127.0.0.1', null, "game_server", "securepass", "game");
         }
+
     }
 ?>

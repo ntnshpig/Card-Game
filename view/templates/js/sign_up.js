@@ -1,4 +1,3 @@
-alert("kekes");  
 function check_pass() {
 
     let pswd = document.getElementById('input_password');

@@ -7,27 +7,29 @@
     <script src="view/templates/js/main.js"></script>
 </head>
 <body>
-    <main>
-        <form action="index.php" method="post" class="logout_form">
-            <img src="https://i.pinimg.com/originals/dc/2c/9f/dc2c9fd87e255ab4f553c1bbf59579b7.png" alt="Avatar">
-            <span class="user">Durashka</span>
-            <div class="profile">
-                <input type="submit" value="Start battle" name="action" class="start" onclick="search(1)"></input>
+    <main>  
+        <div class="upper">
+            <img alt="Avatar" id="user_avatar">
+            <span class="user"></span>
+        </div>
+        <div class="profile">
+            <input type="submit" value="Start battle" name="action" class="start" onclick="search(1)"></input>
+            <form action="index.php" method="post" class="logout_form">
                 <input type="submit" value="Card collection" name="moveto"></input>
                 <input type="submit" value="Logout" name="logout"></input>
-                <span class="msg_in"></span>
-            </div>
-            <div class="searching">
-                <div class="dots">
-                    <span class="circle circle-1"></span>
-                    <span class="circle circle-2"></span>
-                    <span class="circle circle-3"></span>
-                    <span class="circle circle-4"></span>
-                    <span class="circle circle-5"></span>
-                </div>  
-                <input type="submit" value="Stop searching" name="action" class="stop" onclick="search(0)"></input>
-            </div>
-        </form>
+            </form>
+            <span class="msg_in"></span>
+        </div>
+        <div class="searching">
+            <div class="dots">
+                <span class="circle circle-1"></span>
+                <span class="circle circle-2"></span>
+                <span class="circle circle-3"></span>
+                <span class="circle circle-4"></span>
+                <span class="circle circle-5"></span>
+            </div>  
+            <input type="submit" value="Stop searching" name="action" class="stop" onclick="search(0)"></input>
+        </div>
     </main>
 </body>
 </html>
