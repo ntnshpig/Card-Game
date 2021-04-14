@@ -32,6 +32,8 @@
                             msg.innerHTML = "Enter succeed";
                             msg.style.color = "green";
                             document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
+                            let msg_hide = document.querySelector(".msg_hide");
+                            msg_hide.innerHTML = "' . $_SESSION['id'] . '";
                         </script>';
                 } else {
                     ob_clean();

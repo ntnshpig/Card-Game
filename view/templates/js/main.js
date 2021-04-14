@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // новое соединение открываем, если старое соединение закрыто
     if (socket === undefined || socket.readyState !== 1) {
-        socket = new WebSocket("ws://10.11.12.5:8000");
+        socket = new WebSocket("ws://10.11.12.5:8888");
     } else {
         showMessage('Надо закрыть уже имеющееся соединение');
     }
@@ -44,10 +44,12 @@ window.addEventListener('DOMContentLoaded', function () {
         /*
          * четыре функции обратного вызова: одна при получении данных и три – при изменениях в состоянии соединения
          */
-            document.querySelector(".profile").style.display = "none";
-            document.querySelector(".searching").style.display = "flex";
-        socket.send("Find opponent");
-        showMessage('Отправлено сообщение серверу: Find opponent');
+        document.querySelector(".profile").style.display = "none";
+        document.querySelector(".searching").style.display = "flex";
+        var message = "FO ";
+        let msg_hide = document.querySelector(".msg_hide");
+        socket.send(message.concat(msg_hide.innerHTML));
+        showMessage(msg_hide.innerHTML);
     };
     document.getElementById('stop_search').onclick = function () {
         /*
@@ -75,12 +77,12 @@ window.addEventListener('DOMContentLoaded', function () {
     /*
      * Закрыть соединение с сервером
      */
-    // document.getElementById('disconnect').onclick = function () {
-    //     if (socket !== undefined && socket.readyState === 1) {
-    //         socket.close();
-    //     } else {
-    //         showMessage('Соединение с сервером уже было закрыто');
-    //     }
-    // };
+    document.getElementById('logout').onclick = function () {
+        if (socket !== undefined && socket.readyState === 1) {
+            socket.close();
+        } else {
+            showMessage('Соединение с сервером уже было закрыто');
+        }
+    };
   
   });

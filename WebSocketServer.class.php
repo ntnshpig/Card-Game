@@ -14,7 +14,7 @@ class WebSocketServer {
     private $logFile = 'ws-log.txt';
     private $resource;
 
-    public function __construct($ip = '10.11.12.5', $port = 8000) {
+    public function __construct($ip = '10.11.12.5', $port = 8888) {
         $this->ip = $ip;
         $this->port = $port;
 
@@ -65,20 +65,24 @@ class WebSocketServer {
     }
 
     public static function response($connect, $data) {
-        if ($data === "Find opponent") {
+        // FO = Find Opponent
+        $request = explode(" ", $data);
+        if ($request[0] === "FO") {
             $search = new Search();
-            $answer = $_SESSION['id'];
-            $tmp = $search->add_to_table(4);
-            /*if($tmp){
+            $tmp = $search->add_to_table($request[1], $connect);
+            if ($tmp) {
                 $answer = $tmp['name'];
-            }else {
+                socket_write($connect, self::encode($answer));
+                socket_write($tmp['socket'], self::encode($answer));
+            } else {
                 $answer = "No oponents";
-            }*/
+                socket_write($connect, self::encode($answer));
+            }
         }
         else {
             $answer = "no such request";
+            socket_write($connect, self::encode($answer));
         }
-        socket_write($connect, self::encode($answer));
     }
 
     public function startServer() {
