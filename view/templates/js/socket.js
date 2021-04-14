@@ -1,5 +1,5 @@
-sendData({name: 'Hello'})
-function sendData( data ) {
+// sendData({name: 'Hello'},(data)=>{alert(data);})
+function sendData( data,callback ) {
     const XHR = new XMLHttpRequest(),
         FD  = new FormData();
     // Push our data into our FormData object
@@ -12,18 +12,17 @@ function sendData( data ) {
         if (XHR.status != 200) { // анализируем HTTP-статус ответа, если статус не 200, то произошла ошибка
             alert(`Ошибка ${XHR.status}: ${XHR.statusText}`); // Например, 404: Not Found
         } else { // если всё прошло гладко, выводим результат
-            alert(`Готово, получили ${XHR.response.length} байт`); // response -- это ответ сервера
             let responseObj = XHR.response;
-            alert(responseObj);
+            callback(responseObj)
             // alert(`Response: ${xhr.response} `); // response -- это ответ сервера
         }
     } );
     // Define what happens in case of error
-    XHR.addEventListener(' error', function( event ) {
+    XHR.addEventListener('error', function( event ) {
         alert( 'Oops! Something went wrong.' );
     } );
     // Set up our request
-    XHR.open( 'POST', 'http://10.11.12.5:8888/Router_login.php' );
+    XHR.open('POST', 'http://10.11.12.5:8888/Router_login.php' );
     // Send our FormData object; HTTP headers are set automatically
     XHR.send( FD );
 }

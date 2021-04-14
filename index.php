@@ -1,13 +1,17 @@
 <?php
+
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: *");
+    header("Access-Control-Allow-Headers: *");
     session_start();
 
     require_once __DIR__.'/controller/Controller.php';
     require_once __DIR__.'/view/View.php';
     require_once __DIR__.'/view/Router.php';
-    require_once __DIR__.'/model/connection/DatabaseConnection.php';
-    require_once __DIR__.'/model/Model.php';
-    require_once __DIR__.'/model/Users.php';
- 
+    // require_once __DIR__.'/model/connection/DatabaseConnection.php';
+    // require_once __DIR__.'/model/Model.php';
+    // require_once __DIR__.'/model/Users.php';
+
     if(!$_SESSION['page']) {
         $_SESSION['page'] = "sign_in";
         // $show = New View('view/templates/sign_in.html');

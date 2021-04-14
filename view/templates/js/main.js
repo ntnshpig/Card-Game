@@ -1,6 +1,3 @@
-var search_battle = document.querySelector(".searching");
-
-
 window.addEventListener('DOMContentLoaded', function () {
     var socket;
 

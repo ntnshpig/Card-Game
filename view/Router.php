@@ -20,72 +20,51 @@
 
         function call_action($action) {
             if($action == "Sign In") {
-                $user = new Users();
-                if($user->sign_in($_POST['login'], $_POST['password'])) {
-                    ob_clean();
-                    $show = New View("view/templates/main.html");
-                    $show->render();
-                    echo '<script>
-                            let status = document.querySelector(".user");
-                            status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
-                            let msg = document.querySelector(".msg_in");
-                            msg.innerHTML = "Enter succeed";
-                            msg.style.color = "green";
-                            document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
-                            let msg_hide = document.querySelector(".msg_hide");
-                            msg_hide.innerHTML = "' . $_SESSION['id'] . '";
-                        </script>';
-                } else {
-                    ob_clean();
-                    $show = New View("view/templates/sign_in.html");
-                    $show->render();
-                    echo '<script>
-                            let msg = document.querySelector(".msg");
-                            msg.innerHTML = "Enter failed";
-                            msg.style.color = "red";
-                        </script>';
-                }
+            echo '<script src="view/templates/js/socket.js"></script>
+            <script>
+            sendData({login: \'' . $_POST['login']. '\', password: \''. $_POST['password'] .'\'}, (data)=>{document.body.innerHTML = data;})
+            </script>';
             }
             if($action == "Remind password") {
-                $user = new Users();
-                if($user->remind_pass($_POST['login'])) {
-                    echo '<script>
-                            let msg = document.querySelector(".msg");
-                            msg.innerHTML = "Send u a message";
-                            msg.style.color = "green";
-                        </script>';
-                } else {
-                    echo '<script>
-                            let msg = document.querySelector(".msg");
-                            msg.innerHTML = "Message failed";
-                            msg.style.color = "red";
-                        </script>';
-                }
+                // $user = new Users();
+                // if($user->remind_pass($_POST['login'])) {
+                //     echo '<script>
+                //             let msg = document.querySelector(".msg");
+                //             msg.innerHTML = "Send u a message";
+                //             msg.style.color = "green";
+                //         </script>';
+                // } else {
+                //     echo '<script>
+                //             let msg = document.querySelector(".msg");
+                //             msg.innerHTML = "Message failed";
+                //             msg.style.color = "red";
+                //         </script>';
+                // }
             }
             if($action == "Sign Up") {
-                $user = new Users();
-                if($user->sign_up($_POST['login'], $_POST['email'], $_POST['password'], $_POST['repeat'], $_POST['real_name'], $_POST['avatar_url'])){
-                    ob_clean();
-                    $show = New View("view/templates/main.html");
-                    $show->render();
-                    echo '<script>
-                            let status = document.querySelector(".user");
-                            status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
-                            document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
-                            let msg = document.querySelector(".msg_in");
-                            msg.innerHTML = "Registration succeed";
-                            msg.style.color = "green";
-                        </script>';
-                } else {
-                    ob_clean();
-                    $show = New View("view/templates/sign_up.html");
-                    $show->render();
-                    echo '<script>
-                            let msg = document.querySelector(".msg");
-                            msg.innerHTML = "Registration failed";
-                            msg.style.color = "red";
-                        </script>';
-                }
+                // $user = new Users();
+                // if($user->sign_up($_POST['login'], $_POST['email'], $_POST['password'], $_POST['repeat'], $_POST['real_name'], $_POST['avatar_url'])){
+                //     ob_clean();
+                //     $show = New View("view/templates/main.html");
+                //     $show->render();
+                //     echo '<script>
+                //             let status = document.querySelector(".user");
+                //             status.innerHTML = "Hello: ' . $_SESSION['name'] . '";
+                //             document.getElementById("user_avatar").src = "'.$_SESSION['url'].'";
+                //             let msg = document.querySelector(".msg_in");
+                //             msg.innerHTML = "Registration succeed";
+                //             msg.style.color = "green";
+                //         </script>';
+                // } else {
+                //     ob_clean();
+                //     $show = New View("view/templates/sign_up.html");
+                //     $show->render();
+                //     echo '<script>
+                //             let msg = document.querySelector(".msg");
+                //             msg.innerHTML = "Registration failed";
+                //             msg.style.color = "red";
+                //         </script>';
+                // }
             }
         }
 

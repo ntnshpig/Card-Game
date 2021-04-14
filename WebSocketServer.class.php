@@ -64,16 +64,27 @@ class WebSocketServer {
         }
     }
 
-    public static function response($connect, $data) {
+    public static function response($connect, $data, $connects) {
         // FO = Find Opponent
         $request = explode(" ", $data);
+         
         if ($request[0] === "FO") {
             $search = new Search();
             $tmp = $search->add_to_table($request[1], $connect);
             if ($tmp) {
-                $answer = $tmp['name'];
+                // OF - Opponent Found
+                $answer = "OF$";
+                $answer .= $tmp['name'];
                 socket_write($connect, self::encode($answer));
-                socket_write($tmp['socket'], self::encode($answer));
+                $op_id = explode('#', strval($tmp['socket']));
+                foreach ($connects as $socket) {
+                    if (is_resource($socket)) {
+                        $temp_id = explode('#', strval($socket));
+                        if ($temp_id[1] == $op_id[1]) {
+                            socket_write($socket, self::encode($request[1]));
+                        }
+                    }
+                }
             } else {
                 $answer = "No oponents";
                 socket_write($connect, self::encode($answer));
@@ -122,6 +133,9 @@ class WebSocketServer {
             if (!socket_select($read, $write, $except, null)) { // ожидаем сокеты, доступные для чтения (без таймаута)
                 break;
             }
+            else {
+                print_r($this->connects);
+            }
             // если слушающий сокет есть в массиве чтения, значит было новое соединение
             if (in_array($this->connection, $read)) {
                 // принимаем новое соединение и производим рукопожатие
@@ -149,7 +163,7 @@ class WebSocketServer {
                 // получено сообщение от клиента, вызываем пользовательскую
                 // функцию, чтобы обработать полученные данные
                 if (is_callable($this->handler)) {
-                    call_user_func($this->handler, $connect, $decoded['payload']);
+                    call_user_func($this->handler, $connect, $decoded['payload'], $this->connects);
                 }
             }
 

@@ -10,9 +10,9 @@ $server = new WebSocketServer('10.11.12.5', 8888);
 $server->settings(100, true);
 
 // эта функция вызывается, когда получено сообщение от клиента
-$server->handler = function($connect, $data) {
+$server->handler = function($connect, $data, $connects) {
     // полученные от клиента данные отправляем обратно
-    WebSocketServer::response($connect, $data);
+    WebSocketServer::response($connect, $data, $connects);
 };
 
 $server->startServer();
