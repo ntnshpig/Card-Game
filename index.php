@@ -41,9 +41,9 @@
     }
 
     if(isset($_POST['logout'])) {
-        unset($_SESSION['name']);
+        // unset($_SESSION['name']);
         unset($_SESSION['page']);
-        unset($_SESSION['url']);
+        // unset($_SESSION['url']);
         $show = New View('view/templates/sign_in.html');
         $show->render();
         session_destroy();

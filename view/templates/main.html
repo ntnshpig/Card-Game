@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Main</title>
     <link rel="stylesheet" href="view/templates/styles/main.css">
-    <script src="view/templates/js/main.js"></script>
+    <script src="/view/templates/js/main.js"></script>
 </head>
 <body>
     <main>  
@@ -13,14 +13,12 @@
             <span class="user"></span>
         </div>
         <div class="profile">
-            <input type="submit" value="Start battle" name="action" class="start" id="start_search"></input>
             <form action="index.php" method="post" class="logout_form">
+                <input type="submit" value="Start battle" name="action" class="start"></input>
                 <input type="submit" value="Card collection" name="moveto"></input>
                 <input type="submit" value="Logout" name="logout" id="logout"></input>
             </form>
             <span class="msg_in"></span>
-            <span>Information</span>
-            <div id="socket-info"></div>
             <span class="msg_hide"></span>
         </div>
         <div class="searching">
@@ -31,7 +29,9 @@
                 <span class="circle circle-4"></span>
                 <span class="circle circle-5"></span>
             </div>  
-            <input type="submit" value="Stop searching" name="action" class="stop" id="stop_search"></input>
+            <form action="index.php" method="post" class="logout_form">
+                <input type="submit" value="Stop searching" name="moveto" class="stop"></input>
+            </form>
         </div>
     </main>
 </body>
