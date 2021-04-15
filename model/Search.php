@@ -9,8 +9,8 @@
         public function add_to_table($login) {
             if ($this->db_new->get_connection() == true) {
                 $new_table = $this->db_new->db_connection->query("SELECT * FROM searching_users;");
-                $arr = $new_table->fetch(PDO::FETCH_ASSOC);
-                print_r($new_table);
+                $arr = $new_table->fetchAll();
+                print_r($arr);
                 if($arr[0]['user_login'] && $arr[0]['user_login'] !== $login) {
                   $new_table = $this->db_new->db_connection->query("SELECT full_name, avatar_url FROM users WHERE login = ". $arr[0]['user_login'] .";");
                   $array = $new_table->fetch(PDO::FETCH_ASSOC);

@@ -74,14 +74,18 @@ if ($_POST['action'] === 'sign in') {
 } else if ($_POST['action'] === "start battle") {
     $search = new Search();
     $i = 0;
+    $answer = "Fail ";
     $tmp = $search->add_to_table($_POST['login']);
     while (!$tmp && $i < 3) {
-        //sleep(3);
+        sleep(3);
         $i += 3;  
         $tmp = $search->add_to_table($_POST['login']);
     }
-    $answer = $tmp['name'];
-    $answer = $answer . " " . $tmp['url'];
-    $answer = $answer . " " . $tmp['order'];
+    if ($tmp) {
+        $answer = "Success ";
+        $answer = $answer . $tmp['name'];
+        $answer = $answer . " " . $tmp['url'];
+        $answer = $answer . " " . $tmp['order'];
+    }
     echo $answer;
 }

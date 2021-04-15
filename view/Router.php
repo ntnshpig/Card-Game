@@ -55,6 +55,7 @@
             }
             if ($action == "Start battle"){
                 ob_end_clean();
+                $_SESSION['stop'] = 0;
                 $show = New View("view/templates/main.html");
                 $show->render();
                 echo '<script>
@@ -64,7 +65,16 @@
                 </script>';
                 echo '<script src="view/templates/js/socket.js"></script>
                 <script>
-                sendData({login: \'' . $_SESSION['login'] . '\', action: \'start battle\'}, (data)=>{ document.body.innerHTML = data;})
+                sendData({login: \'' . $_SESSION['login'] . '\', action: \'start battle\'}, (data)=>{
+                    var arr = data.split(" "); 
+                    if (arr[0] === "Success") {
+                        document.body.innerHTML = data;
+                    } else if (' . $_SESSION['stop'] . ' == 0) {
+                        document.querySelector(".upper").style.display = "flex";
+                        document.querySelector(".profile").style.display = "flex";
+                        document.querySelector(".searching").style.display = "none";
+                    }
+                })
                 </script>';
             }
         }
@@ -74,8 +84,22 @@
                 ob_end_clean();
                 $show = New View("view/templates/collection.html");
                 $show->render();    
-            } else if($page == "Back" || $page == "Stop searching") {
+            } else if ($page == "Battle with Bot") {
                 ob_end_clean();
+                $show = New View("view/templates/battle.html");
+                $show->render(); 
+                echo '<script src="view/templates/js/socket.js"></script>
+                <script>
+                sendData({login: \'' . $_SESSION['login'] . '\', action: \'get url\'}, (data)=>{
+                    document.querySelector(".hero_avatar").src = data;})
+                    document.querySelector(".hero_name").innerHTML = '. $_SESSION['login'] .';
+                </script>';
+
+            } else if($page == "Back" || $page == "Stop searching" || $page == "Give Up") {
+                ob_end_clean();
+                if ($page == "Stop searching") {
+                    $_SESSION['stop'] = 1;
+                }
                 $show = New View("view/templates/main.html");
                 $show->render();
                 echo '<script src="view/templates/js/socket.js"></script>
