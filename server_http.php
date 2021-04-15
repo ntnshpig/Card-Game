@@ -75,8 +75,8 @@ if ($_POST['action'] === 'sign in') {
     $search = new Search();
     $i = 0;
     $tmp = $search->add_to_table($_POST['login']);
-    while (!$tmp || $i > 60) {
-        sleep(3);
+    while (!$tmp && $i < 3) {
+        //sleep(3);
         $i += 3;  
         $tmp = $search->add_to_table($_POST['login']);
     }
