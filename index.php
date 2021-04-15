@@ -17,9 +17,24 @@
         // $show = New View('view/templates/sign_in.html');
         // $show->render();
     }
-
-    $show = New View('view/templates/sign_in.html');
-    $show->render();
+    if(!$_SESSION['login']) {
+        $show = New View('view/templates/sign_in.html');
+        $show->render();
+    } else {
+        $show = New View('view/templates/main.html');
+        $show->render();
+        echo '<script src="view/templates/js/socket.js"></script>
+                <script>
+                sendData({login: \'' . $_SESSION['login'] . '\', action: \'get name\'}, (data)=>{
+                    let status = document.querySelector(".user");
+                    status.innerHTML = "Hello, ";
+                    status.innerHTML += data;})
+                </script>
+                <script>
+                sendData({login: \'' . $_SESSION['login'] . '\', action: \'get url\'}, (data)=>{
+                    document.getElementById("user_avatar").src = data;})
+                </script>';
+    }
 
     /*if(!isset($_GET['moveto']) && !isset($_POST['moveto'])) {
         $show = New View('view/templates/' . $_SESSION['page'] . ".html");
@@ -41,6 +56,8 @@
     }
 
     if(isset($_POST['logout'])) {
+        ob_end_clean();
+        unset($_SESSION['login']);
         // unset($_SESSION['name']);
         unset($_SESSION['page']);
         // unset($_SESSION['url']);

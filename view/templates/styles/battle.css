@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Tangerine';
-    src: local('Tangerine'), url("/fonts/13341.otf") format("opentype");
+    src: local('Tangerine'), url("/view/templates/styles/fonts/13341.otf") format("opentype");
 }
 * {
     margin: 0px;
@@ -45,9 +45,8 @@ main {
     height: 140px;
 }
 .enemy_health, .hero_health {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
+    font-family: 'Tangerine';
+    font-size: 30px;
     color: white;
 }
 .enemy {
@@ -90,9 +89,8 @@ main {
     justify-content: center;
 }
 .num {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 25px;
+    font-family: 'Tangerine';
+    font-size: 30px;
     color: white;
 }
 
@@ -176,9 +174,8 @@ main {
     height: 60px;
 }
 .mana_value, .mem {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 30px;
+    font-family: 'Tangerine';
+    font-size: 35px;
     color: white;
 }
 .timer_title {
@@ -291,4 +288,48 @@ input[type="submit"]:hover {
     font-size: 36px;
     color: white;
     font-family: 'Tangerine';
+}
+
+.win, .lose, .fight {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.493);
+    justify-content: center;
+    align-items: center;
+}
+.win_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://lh3.googleusercontent.com/proxy/4pajEDQy--Hzwb2BMNCXfFzurv_jwIHp1KHYY7ujNnidqPeL8YZejpIuniTUEN60LqI9_L95PY4kEu6X01hZYFxwaGcZ_M4hedH1LtVeaCzkoRsq6r36a8GUvkooWT-y02c);
+    width: 400px;
+    height: 220px;
+    border-radius: 10px
+}
+.lose_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://i.pinimg.com/originals/36/ad/bb/36adbbabbaf05c1186b0294bf44e85c6.gif);
+    width: 400px;
+    height: 220px;
+    border-radius: 10px
+}
+.fight_title {
+    background: url(https://secure.mylineage.com/images/sword.gif);
+    width: 400px;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+.win_title span, .lose_title span {
+    font-family: 'Tangerine';
+    font-weight: 500;
+    color: white;
+    font-size: 40px;
+    text-transform: full-width;
 }

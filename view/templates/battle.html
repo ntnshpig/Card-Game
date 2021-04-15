@@ -30,9 +30,7 @@
             <div class="buttons_div">
                 <span class="timer_title">Time: </span>
                 <span class="timer_time">30</span>
-                <form action="index.php" method="post" class="logout_form">
-                    <input type="submit" value="Give Up" name="moveto" onclick="give_up()"></input>
-                </form>
+                <input type="submit" value="Give Up" name="give_up" onclick="give_up()"></input>
                 <input type="submit" value="End turn" name="end_turn" onclick="end_turn()"></input>
                 <img src="https://static.hsreplay.net/static/images/mana_crystal.png" class="diamond">
                 <div>
@@ -43,7 +41,7 @@
         </div>
         <div class="bottom_player">
             <div class="hero">
-                <img src="" class="hero_avatar">
+                <img src="http://pngimg.com/uploads/groot/groot_PNG17.png" class="hero_avatar">
                 <span class="hero_health">Health: 40</span>
                 <span class="hero_name"></span>
             </div>
@@ -52,6 +50,20 @@
             </div>
         </div>
     </main>
+    <div class="win">
+        <div class="win_title">
+            <span>You WIN!!!</span>
+        </div>
+    </div>
+    <div class="lose">
+        <div class="lose_title">
+            <span>You LOSE :(</span>
+        </div>
+    </div>
+    <div class="fight">
+        <div class="fight_title">
+        </div>
+    </div>
 </body>
-<script src="view/templates/js/battle.js"></script>
+<script src="/view/templates/js/battle.js"></script>
 </html>

@@ -26,7 +26,7 @@ function sendData( data,callback ) {
         alert( 'Oops! Something went wrong.' );
     } );
     // Set up our request
-    XHR.open('POST', 'http://10.11.12.5:8888/server_http.php' );
+    XHR.open('POST', 'http://10.11.12.6:8888/server_http.php' );
     // Send our FormData object; HTTP headers are set automatically
     XHR.send( FD );
 }

@@ -3,36 +3,141 @@ var cards = [
         "name":"Spider-Man", 
         "attack":3, 
         "hp":2, 
-        "cost":1,
-        "url":"http://www.hearthcards.net/cards/756a4ff8.png"
+        "cost":2,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/01/29/81/96/01298196.png"
     },
     {
         "name":"Iron Man", 
         "attack":4, 
         "hp":4, 
         "cost":4,
-        "url":"http://www.hearthcards.net/cards/81b24038.png"
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/67/f1/88/f9/67f188f9.png"
     }, 
     {
-        "name":"Vision", 
-        "attack":5, 
-        "hp":3, 
-        "cost":4,
-        "url":"http://www.hearthcards.net/cards/0ae5732e.png"
-    },
-    {
-        "name":"Locky", 
-        "attack":4, 
-        "hp":2, 
+        "name":"Wolverine", 
+        "attack":3, 
+        "hp":4, 
         "cost":3,
-        "url":"http://www.hearthcards.net/cards/11de9221.png"
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/2a/07/fc/12/2a07fc12.png"
     },
     {
-        "name":"Captain America", 
+        "name":"Thor", 
+        "attack":4, 
+        "hp":5, 
+        "cost":3,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/0e/b0/4f/68/0eb04f68.png"
+    },
+    {
+        "name":"Daredevil", 
+        "attack":5, 
+        "hp":6, 
+        "cost":6,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/72/f5/98/d4/72f598d4.png"
+    },
+    {
+        "name":"Luke Cage", 
+        "attack":2, 
+        "hp":1, 
+        "cost":1,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/20/98/0e/bb/20980ebb.png"
+    },
+    {
+        "name":"Nick Fury", 
+        "attack":2, 
+        "hp":1, 
+        "cost":1,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/af/24/09/32/af240932.png"
+    },
+    {
+        "name":"Gambit", 
+        "attack":2, 
+        "hp":2, 
+        "cost":2,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/40/ce/25/d1/40ce25d1.png"
+    },
+    {
+        "name":"Hawkeye", 
         "attack":2, 
         "hp":2, 
         "cost":1,
-        "url":"http://www.hearthcards.net/cards/53e3d500.png"
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/f8/1d/48/81/f81d4881.png"
+    },
+    {
+        "name":"Silver Surfer", 
+        "attack":7, 
+        "hp":5, 
+        "cost":5,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/cc/92/b5/fc/cc92b5fc.png"
+    },
+    {
+        "name":"Blade", 
+        "attack":3, 
+        "hp":2, 
+        "cost":2,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/b8/92/ad/5b/b892ad5b.png"
+    },
+    {
+        "name":"Nightcrawler", 
+        "attack":3, 
+        "hp":2, 
+        "cost":2,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/f7/b6/89/30/f7b68930.png"
+    },
+    {
+        "name":"Doctor Strange", 
+        "attack":3, 
+        "hp":4, 
+        "cost":4,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/31/40/8d/2d/31408d2d.png"
+    },
+    {
+        "name":"Miles Morales" ,
+        "attack":3, 
+        "hp":1, 
+        "cost":3,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/1a/ab/71/34/1aab7134.png"
+    },
+    {
+        "name":"Black Panther", 
+        "attack":4, 
+        "hp":3, 
+        "cost":3,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/39/4d/b0/52/394db052.png"
+    },
+    {
+        "name":"Captain America", 
+        "attack":1, 
+        "hp":2, 
+        "cost":1,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/63/48/f9/12/6348f912.png"
+    },
+    {
+        "name":"Black Widow", 
+        "attack":1, 
+        "hp":1, 
+        "cost":1,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/36/3b/e0/67/363be067.png"
+    },
+    {
+        "name":"Vision", 
+        "attack":4, 
+        "hp":2, 
+        "cost":3,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/cd/25/3c/c5/cd253cc5.png"
+    },
+    {
+        "name":"Quicksilver", 
+        "attack":2, 
+        "hp":2, 
+        "cost":2,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/37/7a/8e/4f/377a8e4f.png"
+    },
+    {
+        "name":"Spider-Girl", 
+        "attack":2, 
+        "hp":1, 
+        "cost":1,
+        "url":"https://hearthcards.ams3.digitaloceanspaces.com/46/9f/7e/0c/469f7e0c.png"
     }
   ];
 
@@ -150,9 +255,9 @@ function  game_start() {
     diamond = 2;
     document.querySelector(".mana_value").innerHTML = diamond;
 
-    for(let i = 1; i <= 4; i++) {
-        hero_cards_arr.push(getRandomInt(5));
-        enemy_cards_arr.push(Object.assign({}, cards[getRandomInt(5)]));
+    for(let i = 1; i <= 3; i++) {
+        hero_cards_arr.push(getRandomInt(20));
+        enemy_cards_arr.push(Object.assign({}, cards[getRandomInt(20)]));
     }
     render_enemy_cards(enemy_cards_arr.length);
     render_hero_cards(hero_cards_arr);
@@ -212,7 +317,7 @@ function bot_move() {
     console.log(enemy_cards_arr[0]['cost']);
     if(enemy_diamond > 0){
        for(let i = enemy_cards_arr.length-1; i >= 0; i--) {
-           if(getRandomInt(10) == 5)
+           if(getRandomInt(20) == 5)
                 break;
             if(enemy_cards_arr[i]['cost'] <= enemy_diamond){
                 enemy_diamond -= enemy_cards_arr[i]['cost'];
@@ -222,6 +327,22 @@ function bot_move() {
         }
     }
 }
+
+function lose() {
+    clearInterval(timer);
+    document.querySelector(".lose").style.display = "flex";
+    setTimeout ( function() {
+        window.location.replace("index.php");
+    }, 3000);
+}
+function win() {
+    clearInterval(timer);
+    document.querySelector(".win").style.display = "flex";
+    setTimeout ( function() {
+        window.location.replace("index.php");
+    }, 3000);
+}
+
 
 function fight() {
     for(let i = 0; i < hero_cards_on_board.length; i++){
@@ -235,7 +356,7 @@ function fight() {
             enemy_health -= hero_cards_on_board[i]["attack"];
         }
     }
-    if(enemy_cards_on_board[0] && hero_cards_on_board[0]){
+    /*if(enemy_cards_on_board[0] && hero_cards_on_board[0]){
         for(let i = 0; i < enemy_cards_on_board.length; i++){
             if(hero_cards_on_board.length > 0 && hero_cards_on_board[0]["hp"] > 0) {
                 hero_cards_on_board[0]["hp"] -= enemy_cards_on_board[i]["attack"];
@@ -247,7 +368,7 @@ function fight() {
                 hero_health -= enemy_cards_on_board[i]["attack"];
             }
         }
-    }
+    }*/
     for(let i = hero_cards_on_board.length-1; i>=0; i--){
         if(hero_cards_on_board[i]["hp"] <= 0){
             hero_cards_on_board.splice(i, 1);
@@ -263,10 +384,15 @@ function fight() {
             hero_health -= elem["attack"];
         });
     }
-    document.querySelector(".hero_health").innerHTML = hero_health;
-    document.querySelector(".enemy_health").innerHTML = enemy_health;
+    document.querySelector(".hero_health").innerHTML = "Health: " + hero_health;
+    document.querySelector(".enemy_health").innerHTML = "Health: " + enemy_health;
     render_enemy_cards_on_board();
     render_hero_cards_on_board();
+    if(hero_health <= 0) {
+        lose();
+    } else if (enemy_health <= 0) {
+        win()
+    }
 }
 
 function end_turn() {
@@ -280,7 +406,7 @@ function end_turn() {
         diamond += 2;
         document.querySelector(".mana_value").innerHTML = diamond;
         
-        hero_cards_arr.push(getRandomInt(5));
+        hero_cards_arr.push(getRandomInt(20));
     }
 
     let tmp_arr = selected_cards.sort().reverse();
@@ -302,18 +428,18 @@ function end_turn() {
     render_enemy_cards_on_board();
     if(enemy_diamond < 6 && enemy_cards_arr.length < 8){
         enemy_diamond += 2;
-        enemy_cards_arr.push(Object.assign({}, cards[getRandomInt(5)]));
+        enemy_cards_arr.push(Object.assign({}, cards[getRandomInt(20)]));
         render_enemy_cards(enemy_cards_arr.length);
     }
-
+    clearInterval(timer);
+    document.querySelector(".fight").style.display = "flex";
     setTimeout(function(){
+        timer_strat();
+        document.querySelector(".fight").style.display = "none";
         fight();
-    }, 2000);
+    }, 3000);
 }
 function give_up() {
-    document.querySelector(".enemy_card_board").innerHTML = "";
-    document.querySelector(".hero_card_board").innerHTML = "";
-    document.querySelector(".hero_cards").innerHTML = '';
-    document.querySelector(".enemy_cards").innerHTML = '';
     clearInterval(timer);
+    lose();
 }
