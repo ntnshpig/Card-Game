@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Tangerine';
-    src: local('Tangerine'), url("/fonts/13341.otf") format("opentype");
+    src: local('Tangerine'), url("/view/templates/styles/fonts/13341.otf") format("opentype");
 }
 * {
     margin: 0px;
@@ -24,7 +24,7 @@ main {
     flex-flow: column;
 }
 
-.top_player {
+.top_player, .bottom_player {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     color: white;
@@ -41,18 +41,17 @@ main {
     flex-flow: row;
 }
 .enemy_avatar {
-    width: 150px;
+    width: 140px;
     height: 140px;
+    border-radius: 50%;
 }
 .enemy_health, .hero_health {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
+    font-family: 'Tangerine';
+    font-size: 28px;
     color: white;
 }
-.enemy {
-    margin-left: 40px;
-    margin-top: 5px;
+.enemy, .hero {
+    margin-left: 60px;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -90,9 +89,8 @@ main {
     justify-content: center;
 }
 .num {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 25px;
+    font-family: 'Tangerine';
+    font-size: 30px;
     color: white;
 }
 
@@ -125,26 +123,6 @@ main {
     min-height: 260px;
     width: 100%;
 }
-/*.enemy_board_card  {
-    height: 230px;
-    width: 120px;
-    background-color: #485461;
-    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 6.5px );
-    -webkit-backdrop-filter: blur( 6.5px );
-    border-radius: 10px;
-}
-.hero_board_card  {
-    height: 230px;
-    width: 140px;
-    background-color: #485461;
-    background-image: linear-gradient(to bottom, #e63c72, #d9335d, #cb2c49, #bb2735, #ab2323);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 6.5px );
-    -webkit-backdrop-filter: blur( 6.5px );
-    border-radius: 10px;
-}*/
 .hero_board_card_div, .enemy_board_card_div {
     position: relative;
     height: 230px;
@@ -176,9 +154,8 @@ main {
     height: 60px;
 }
 .mana_value, .mem {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 30px;
+    font-family: 'Tangerine';
+    font-size: 35px;
     color: white;
 }
 .timer_title {
@@ -219,33 +196,11 @@ input[type="submit"]:hover {
 
 
 
-.bottom_player {
-    color: white;
-    gap: 20px;
-    backdrop-filter: blur(10px);
-    background-color: rgba(57,113,132, 0.38);
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
-    border: 0px rgba(255,255,255,0.4) solid;
-    border-bottom: 0px rgba(40,40,40,0.35) solid;
-    border-right: 0px rgba(40,40,40,0.35) solid;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 200px;
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-}
-.hero {
-    margin-left: 40px;
-    margin-top: 5px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    width: 250px;
-}
+
 .hero_avatar {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
 }
 .hero_cards {
     padding-left: 20px;
@@ -253,16 +208,9 @@ input[type="submit"]:hover {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-    margin: 5px 10px;
+    margin: 5px 40px 0pc 10px;
     position: relative;
 }
-/*.hero_card {
-    margin: -40px -15px;
-    height: 230px;
-    width: 140px;
-    cursor: pointer;
-    padding: 0px;
-}*/
 .hero_card_image {
     height: 230px;
     width: 160px;
@@ -291,4 +239,63 @@ input[type="submit"]:hover {
     font-size: 36px;
     color: white;
     font-family: 'Tangerine';
+}
+
+.win, .lose, .fight, .start_fight {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.493);
+    justify-content: center;
+    align-items: center;
+}
+.start_fight {
+    transition: ease-in-out 0.5s;
+    display: flex;
+}
+.win_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://lh3.googleusercontent.com/proxy/4pajEDQy--Hzwb2BMNCXfFzurv_jwIHp1KHYY7ujNnidqPeL8YZejpIuniTUEN60LqI9_L95PY4kEu6X01hZYFxwaGcZ_M4hedH1LtVeaCzkoRsq6r36a8GUvkooWT-y02c);
+    width: 400px;
+    height: 220px;
+    border-radius: 10px
+}
+.lose_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://i.pinimg.com/originals/36/ad/bb/36adbbabbaf05c1186b0294bf44e85c6.gif);
+    width: 400px;
+    height: 220px;
+    border-radius: 10px
+}
+.fight_title {
+    background: url(https://secure.mylineage.com/images/sword.gif);
+    width: 400px;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+.win_title span, .lose_title span {
+    font-family: 'Tangerine';
+    font-weight: 500;
+    color: white;
+    font-size: 40px;
+    text-transform: full-width;
+}
+.start_fight_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://raw.githubusercontent.com/ivankozhyn/infotech-mortal-kombat/master/src/assets/otherAnimations/fight.gif);
+    background-size: cover;
+    background-position: center;
+    width: 400px;
+    height: 220px;
+    border-radius: 10px
 }

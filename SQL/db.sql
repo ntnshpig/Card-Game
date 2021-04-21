@@ -10,18 +10,10 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(50) NOT NULL,
     full_name VARCHAR(60) NOT NULL,
     email_address VARCHAR(50) NOT NULL UNIQUE,
-    avatar_url VARCHAR(300) NULL
+    avatar_url TEXT NULL
 );
-CREATE TABLE IF NOT EXISTS serching_users (
+CREATE TABLE IF NOT EXISTS searching_users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT UNIQUE KEY,
-    socket INT UNIQUE KEY
-);
-CREATE TABLE IF NOT EXISTS cards (
-    card_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(60) NOT NULL,
-    damage INT(3) NOT NULL,
-    health INT(3) NOT NULL,
-    cost INT(3) NOT NULL,
-    descrition TEXT
+    user_login VARCHAR(50) UNIQUE KEY,
+    socket VARCHAR(50) UNIQUE KEY
 );
